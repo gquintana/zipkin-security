@@ -14,7 +14,7 @@ deployment to secure the http endpoint with a password.
 JRE 8 is required to run Zipkin server.
 
 Fetch the latest released
-[executable jar for Zipkin server](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec)
+[executable jar for Zipkin server](https://search.maven.org/remote_content?g=org.apache.zipkin.java&a=zipkin-server&v=LATEST&c=exec)
 and build the module jar for security.
 
 For example (from the project root):

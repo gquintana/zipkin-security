@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.zipkin.security</groupId>
+  <groupId>org.apache.zipkin.security</groupId>
   <artifactId>zipkin-security</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -17,8 +17,8 @@
 
     <!-- must match (ex. use spring-boot used by zipkin-server) -->
     <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-    <armeria.version>0.83.0</armeria.version>
-    <zipkin.version>2.12.9</zipkin.version>
+    <armeria.version>0.84.0</armeria.version>
+    <zipkin.version>2.13.0</zipkin.version>
   </properties>
 
   <name>Zipkin Security</name>
@@ -64,11 +64,16 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <!-- watch out! this will soon change to apache! -->
-      <groupId>io.zipkin.java</groupId>
+      <groupId>org.apache.zipkin</groupId>
       <artifactId>zipkin-server</artifactId>
       <version>${zipkin.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>armeria-zipkin</artifactId>
+          <groupId>com.linecorp.armeria</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -116,9 +121,9 @@
           </configuration>
           <dependencies>
             <dependency>
-              <groupId>io.zipkin.layout</groupId>
+              <groupId>org.apache.zipkin.layout</groupId>
               <artifactId>zipkin-layout-factory</artifactId>
-              <version>0.0.4</version>
+              <version>0.0.5</version>
             </dependency>
           </dependencies>
         </plugin>
